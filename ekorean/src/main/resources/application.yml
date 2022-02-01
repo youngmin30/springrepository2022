@@ -1,0 +1,38 @@
+
+# \uC11C\uBC84 \uAE30\uBCF8 \uC124\uC815
+server:
+  port: 8085
+
+# \uC2A4\uD504\uB9C1 \uD658\uACBD\uC124\uC815
+spring:
+
+# 선생님 추가(아직 정리 중이라고 하셨음)
+devtools:
+  livereload:
+    enabled: true
+
+  freemarker:
+    cache: false
+
+  thymeleaf:
+    cache: false
+
+
+# DB \uC138\uD305
+datasource:
+  driver-class-name: com.mysql.cj.jdbc.Driver
+  url: jdbc:mysql://localhost:3306/ekorean?useUnicode=true&characterEncoding=utf8&autoReconnect=true&serverTimezone=Asia/Seoul&useOldAliasMetadataBehavior=true&zeroDateTimeNehavior=convertToNull&connectTimeout=60
+  username: jeon
+  password: jeon01
+
+
+# jap 설정
+jpa:
+  database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+  hibernate:
+    ddl-auto: create
+  properties:
+    hibernate:
+      show_sql: true
+      format_sql: true
+    open-in-view: true
