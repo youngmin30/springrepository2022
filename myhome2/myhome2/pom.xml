@@ -42,6 +42,17 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId> <!-- 5강 jpa를 이용해 게시판 조회하기에서 직접 추가 -->
+			<version>2.6.3</version> <!-- parent와 버전이 동일한 것 확인함 -->
+		</dependency>
+		<!-- mariadb java client 직접 추가함 -->
+		<dependency>
+			<groupId>org.mariadb.jdbc</groupId>
+			<artifactId>mariadb-java-client</artifactId>
+			<version>2.7.5</version>
+		</dependency>
 	</dependencies>
 
 	<build>
