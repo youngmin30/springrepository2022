@@ -1,0 +1,88 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+    
+  <head th:replace="fragments/common :: head('게시판')"> <!-- <head>를 변경함 -->
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" 
+    integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <!-- Custom styles for this template -->
+    <link href="starter-template.css" th:href="@{/starter-template.css}" rel="stylesheet"> <!-- <link href="starter-template.css" rel="stylesheet">를 변경함 -->
+
+
+    <title>게시판</title>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top" th:replace="fragments/common :: menu('board')"> <!-- common.html에 th:fragment="menu" 추가한 뒤에 index.html 여기로 넘어와서 th:replace="fragments/common :: menu 추가함 -->
+    <a class="navbar-brand" href="#">SpringBoot Tutorial</a>
+    
+    <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+            <a class="nav-link" href="#">홈<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">게시판</a>
+        </li>
+        
+        <li class="nav-item">
+            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+        </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+            <div class="dropdown-menu" aria-labelledby="dropdown01">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+        </li> 
+        </ul> -->
+        <!-- 검색 부분 주석 처리 -->
+        <!--
+        <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+        <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+        </form> --> <!-- common.html이 있어서 없어도 되는 부분으로 생각됨 -->
+    <!-- </div> -->
+    </nav>
+
+    <div class="container">
+        <h2>게시판</h2>
+        <div>모든 게시글 수: <span th:text="${#lists.size(boards)}"></span></div> <!-- 데이터베이스 테이블, model, repository 만든 뒤에 화면에도 적용함 -->
+        <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">글번호</th>
+                <th scope="col">글제목</th>
+                <th scope="col">작성자</th>
+              <tr th:each="board : ${boards}">
+                <!--<th scope="row">1</th> -->
+                <td th:text="#{board.id}">Larry</td> <!-- 데이터베이스 안의 자료가 화면에 나올 때, 인코딩 해결 필요 현재 mydb -->
+                <td><a th:text="#{board.title}" th:href="@{/board/form(id=${board.id})}">the Bird</a></td> <!-- td태그와 a태그 함께 사용하고, Thymeleaf 문서에서 href 문법 가져옴 -->
+                <td>김길동</td>>
+              </tr>
+            </tbody>
+          </table>
+          <!-- 글쓰기 버튼 추가하기 -->
+          <div class="text-right">
+            <!-- <button type="button" class="btn btn-secondary" >글쓰기</button> -->
+            <a type="button" class="btn btn-secondary" th:href="@{/board/form}">글쓰기</a> <!-- 위 줄을 이 줄로 변경함. button 태그를 a 태그로 변경하고, th:href 추가 -->
+          </div>
+    </div>
+
+    
+    <!-- <main role="main" class="container">
+    <div class="starter-template">
+        <h1>게시판</h1>
+    </div> --> <!-- 이 부분을 삭제하고, 위 부분 <div class="container"로 바꿈 -->
+    </main>
+  </body>
+</html>
