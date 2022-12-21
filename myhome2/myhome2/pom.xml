@@ -48,11 +48,11 @@
 			<version>2.6.3</version> <!-- parent와 버전이 동일한 것 확인함 -->
 		</dependency>
 		<!-- mariadb java client 직접 추가함 -->
-		<dependency>
+		<!-- <dependency>
 			<groupId>org.mariadb.jdbc</groupId>
 			<artifactId>mariadb-java-client</artifactId>
 			<version>2.7.5</version>
-		</dependency>
+		</dependency> -->
 		<!-- 없어서 직접 추가함. Board.java에서 Notnull과 Size 어노테이션 추가할 때 필요했음 -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
